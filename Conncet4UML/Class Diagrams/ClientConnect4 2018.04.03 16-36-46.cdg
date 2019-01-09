@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ClientConnect4">
+  <ClassDiagramComponents>
+    <Class name="Utils" package="" visibility="public" xPosition="214.0" yPosition="312.0">
+      <Fields>
+        <Field name="NUM_ROWS" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="NUM_COLS" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="YELLOW" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="BLUE" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="MAX_TIME" type="long" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="BUTTON_SIZE" type="int" visibility="public" isStatic="true"/>
+        <Field name="yellowIcon" type="ImageIcon" visibility="public" isStatic="true"/>
+        <Field name="redIcon" type="ImageIcon" visibility="public" isStatic="true"/>
+        <Field name="backgroundIcon" type="ImageIcon" visibility="public" isStatic="true"/>
+        <Field name="yellowWinIcon" type="ImageIcon" visibility="public" isStatic="true"/>
+        <Field name="redWinIcon" type="ImageIcon" visibility="public" isStatic="true"/>
+        <Field name="splashIcon" type="ImageIcon" visibility="public" isStatic="true"/>
+        <Field name="frameIcon" type="ImageIcon" visibility="public" isStatic="true"/>
+        <Field name="loginIcon" type="ImageIcon" visibility="public" isStatic="true"/>
+        <Field name="chatPicture" type="ImageIcon" visibility="public" isStatic="true"/>
+        <Field name="clickSound" type="Sound" visibility="public" isStatic="true"/>
+        <Field name="BGMusic" type="Sound" visibility="public" isStatic="true"/>
+        <Field name="gameOverSound" type="Sound" visibility="public" isStatic="true"/>
+        <Field name="winSound" type="Sound" visibility="public" isStatic="true"/>
+        <Field name="MassageReceived" type="Sound" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="loadMedia" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="setScreenSize" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="setSoundEffects" returnType="void" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="Sound" package="" visibility="public" xPosition="214.0" yPosition="116.0">
+      <Fields>
+        <Field name="sound" type="AudioClip" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="URL" name="url"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="loop" returnType="void" visibility="public"/>
+        <Method name="stop" returnType="void" visibility="public"/>
+        <Method name="play" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ClientGUI" package="" visibility="public" xPosition="762.0" yPosition="116.0">
+      <Fields>
+        <Field name="BUTTON_FONT" type="Font" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="win" type="JFrame" visibility="private"/>
+        <Field name="pnlButtons" type="JPanel" visibility="private"/>
+        <Field name="buttons" type="JButton[][]" visibility="private"/>
+        <Field name="menuBar" type="JMenuBar" visibility="private"/>
+        <Field name="numRows" type="int" visibility="private"/>
+        <Field name="lblMSg" type="JLabel" visibility="private"/>
+        <Field name="lblPlayerName" type="JLabel" visibility="private"/>
+        <Field name="image" type="ImageIcon" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="createGUI" returnType="void" visibility="private"/>
+        <Method name="setTitle" returnType="void" visibility="public">
+          <Argument type="String" name="title"/>
+        </Method>
+        <Method name="createButtonsPanel" returnType="void" visibility="private"/>
+        <Method name="creatMenueBar" returnType="void" visibility="private"/>
+        <Method name="initGame" returnType="void" visibility="public">
+          <Argument type="ImageIcon" name="BG"/>
+        </Method>
+        <Method name="getButtons" returnType="JButton[][]" visibility="public"/>
+        <Method name="getMenuBar" returnType="JMenuBar" visibility="public"/>
+        <Method name="getWin" returnType="JFrame" visibility="public"/>
+        <Method name="createLblMSg" returnType="void" visibility="public"/>
+        <Method name="setVisible" returnType="void" visibility="public">
+          <Argument type="boolean" name="status"/>
+        </Method>
+        <Method name="getLabelMsg" returnType="JLabel" visibility="public"/>
+        <Method name="setLabelMsgText" returnType="void" visibility="public">
+          <Argument type="String" name="msg"/>
+        </Method>
+        <Method name="endGame" returnType="void" visibility="public"/>
+        <Method name="setButtonOn" returnType="void" visibility="public">
+          <Argument type="int" name="row"/>
+          <Argument type="int" name="col"/>
+          <Argument type="ImageIcon" name="img"/>
+        </Method>
+        <Method name="enableAllButtons" returnType="void" visibility="public">
+          <Argument type="boolean" name="status"/>
+        </Method>
+        <Method name="showSplashScreen" returnType="void" visibility="private"/>
+        <Method name="createLblPlayerName" returnType="void" visibility="private"/>
+        <Method name="getLablPlayerName" returnType="JLabel" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Client" package="" visibility="public" xPosition="515.0" yPosition="33.0">
+      <Fields>
+        <Field name="serverHost" type="String" visibility="private"/>
+        <Field name="serverPort" type="int" visibility="private"/>
+        <Field name="gui" type="ClientGUI" visibility="private"/>
+        <Field name="clientID" type="String" visibility="private"/>
+        <Field name="clientName" type="String" visibility="private"/>
+        <Field name="clientSocket" type="Socket" visibility="private"/>
+        <Field name="os" type="ObjectOutputStream" visibility="private"/>
+        <Field name="is" type="ObjectInputStream" visibility="private"/>
+        <Field name="playerImage" type="ImageIcon" visibility="private"/>
+        <Field name="canOpenChat" type="boolean" visibility="private"/>
+        <Field name="area" type="JTextArea" visibility="private"/>
+        <Field name="pnl" type="JPanel" visibility="private"/>
+        <Field name="field" type="JTextField" visibility="private"/>
+        <Field name="chatWin" type="JFrame" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="clientSetup" returnType="void" visibility="private"/>
+        <Method name="run" returnType="void" visibility="private"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="crateGUI" returnType="void" visibility="private"/>
+        <Method name="crateChatGUI" returnType="void" visibility="private"/>
+        <Method name="listenerFromServer" returnType="void" visibility="private"/>
+        <Method name="makeMove" returnType="void" visibility="private">
+          <Argument type="JButton" name="btn"/>
+        </Method>
+        <Method name="setEventHandler" returnType="void" visibility="private"/>
+        <Method name="setPlayerImage" returnType="void" visibility="private"/>
+        <Method name="playBackgroundMusic" returnType="void" visibility="private">
+          <Argument type="Sound" name="sound"/>
+          <Argument type="boolean" name="isOver"/>
+        </Method>
+        <Method name="playSound" returnType="void" visibility="private">
+          <Argument type="Sound" name="sound"/>
+        </Method>
+        <Method name="newGame" returnType="void" visibility="private"/>
+        <Method name="checkClientDetails" returnType="void" visibility="private"/>
+        <Method name="sendChatMessageToServer" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="MassageReceived" source="Utils" target="Sound" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="gameOverSound" source="Utils" target="Sound" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="clickSound" source="Utils" target="Sound" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="winSound" source="Utils" target="Sound" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="gui" source="Client" target="ClientGUI" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Client" target="Sound" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="BGMusic" source="Utils" target="Sound" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
